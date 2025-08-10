@@ -258,10 +258,10 @@
   </div>
 
   <script>
-     function goBack() {
-      billingBox.style.display = "none";
-      container.style.display = "flex";
-      pageTitle.textContent = "Build Specifications";
+      function goBack() {
+      document.getElementById("billing-box").style.display = "none";
+      document.getElementById("spec-container").style.display = "flex";
+      document.getElementById("pageTitle").textContent = "Build Specifications";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>

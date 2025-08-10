@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Study Centre </title>
+    <link rel="icon" href="../assets/images/img/selflogo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <script>
+       if(localStorage.getItem("isLogin")!==null)
+       {
+          if(localStorage.getItem("isLogin"))
+          {
+             window.location.href="../dashboard/index.html?id=Home";
+          }
+          else
+          {
+            window.location.href="../dashboard/login.html";
+          }
+       }
+       else
+       {
+        window.location.href="../dashboard/login.html";
+       }
+    </script>
+  </body>
+</html>

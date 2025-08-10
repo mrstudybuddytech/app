@@ -1,5 +1,5 @@
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js';
-  import { getFirestore,collection,getDocs,getDoc,doc,where,query,deleteDoc,setDoc } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js';
+  import { getFirestore,collection,getDocs,getDoc,doc,where,query,deleteDoc,setDoc,updateDoc } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js';
 
        const firebaseConfig = {
         apiKey: "AIzaSyBY1z-ndNDL7QQTRXlOpAo2wYb3h9lL3-Y",
@@ -269,4 +269,5 @@
              alert("Failed to update document.");
              preLoader(false);
            }
+
     }

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PAYMENT HOME</title>
+  <link rel="icon" href="../assets/images/img/selflogo.png" type="image/x-icon" />
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="../assets/css/payment.css" />
+   <script src="https://kit.fontawesome.com/f72c7df609.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      setInterval(() => {
+          const value = localStorage.getItem("isLogin");
+          if (value == null || !value) {
+              window.location.href="../dashboard/login.html";
+          }
+      }, 2000);
+    </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #f2f2f2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+  </style>
+  <style>
+    #preLoader{
+      position:absolute;
+      z-index: 4;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+    <div id="preLoader"><div class="loader"></div></div>
+<!-- Image Popup Overlay -->
+<div id="imagePopup" class="image-popup">
+  <img id="popupImage" src="" alt="Full View" />
+</div>
+ <div class="overlay" id="overlay">
+    <div class="payment-container" id="paymentContainer">
+      <button class="close-btn" >×</button>
+
+      <div class="upi-box" id="upiBox">
+        <p>Scan this QR code to pay via UPI</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=9060242143@ptaxis&pn=RahulKumar&am=3500&cu=INR&size=200x200" alt="UPI QR">
+        <div class="upi-id">UPI ID: 9060242143@ptaxis</div>
+      </div>
+
+      <div class="direct-box" id="directBox">
+        <p>Please proceed to make a direct payment via bank/cash.</p>
+      </div>
+       <div style="width: 100%;">
+           <p style="margin-top: 10px;">If You Received Payment in your account click sumbit</p>
+           <button id="payUpi" style="padding: 10px; background: rgb(27, 141, 255); width: 100px; color: white; border-radius: 5px;">sumbit</button>
+      </div>
+    </div>
+  </div>
+  <!-- Header with Back Button -->
+  <div class="header">
+    <div class="back-button">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    </div>
+    <img id="imageUrl" src="" alt="Profile" />
+    <div class="details">
+      <div class="name SNAME"></div>
+      <div class="number MB"></div>
+    </div>
+ </div>
+  <!-- Chat Transactions -->
+  <div class="chat-container" id="chatContainer">
+    <!-- JS will inject transactions -->
+  </div>
+  <!-- Bottom Input Section -->
+  <div class="bottom-input">
+    <select name="payment-method" id="payment-method" >
+      <option value="upi">UPI</option>
+      <option value="cash">Cash</option>
+    </select>
+    <input id="payment-amount" type="text" placeholder="Enter amount or message">
+     <button id="showPaymentBox">₹ Pay</button>
+  </div>
+  <!-- Payment Details Popup -->
+<div class="payment-popup" id="paymentPopup">
+  <div class="popup-content">
+    <div class="popup-header" >
+      <div class="popup-back" id="closeHistory">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <h3>Money Received</h3>
+      <div>
+        <button id="shareBtn" style="border-radius: 5px; padding: 5px 10px;">📤 Share</button>
+      </div>
+    </div>
+
+    <div class="amount-card">
+      <h2 id="AH">₹3,500 ✅</h2>
+      <p id="AHE">Rupees Three Thousand Five Hundred Only</p>
+      <div class="status">💵 Money Received</div>
+    </div>
+
+    <div class="section">
+      <h4>From</h4>
+      <div class="info-row">
+        <div>
+          <strong class="SNAME">Hrithik Roshan </strong>✅<br />
+          Mobile Number: <Span class="MB"></Span> <span class="paytm"></span>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h4>To</h4>
+      <div>
+         Payment Method: <span id="PM">upi | 9060242143@ptaxis</span><br/>
+        <small >Received at <span id="timestamp"></span></small><br />
+        <small>UPI Ref No: <span id="ref">387286445577</span> <a href="#">Copy</a></small>
+      </div>
+    </div>
+
+    <div class="feedback">
+      <p>Did you find this page useful?</p>
+      <button>👍</button>
+      <button>👎</button>
+    </div>
+
+    <div class="powered-by">
+      Powered by <strong>UPI</strong> | <strong>Study Buddy centre</strong>
+    </div>
+  </div>
+</div>
+    <script type="module" src="../assets/js/dashboard/database/payment.js"></script>
+    <script>
+    
+// Close popup
+
+
+    </script>
+
+</body>
+</html>

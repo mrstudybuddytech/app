@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en" data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" dir="ltr" data-pc-theme="light">
+  <head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Mr Captain" />
+    <link rel="icon" href="../assets/images/img/selflogo.png" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/f72c7df609.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../assets/css/study.css" />
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="../assets/js/dashboard/database/dbconfing.js"></script>
+    <link rel="stylesheet" href="../assets/css/profile.css" />
+    <link rel="stylesheet" href="../assets/css/payment.css" />
+    <link rel="stylesheet" href="../assets/css/attandace.css" />
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+   
+    <script>
+      setInterval(() => {
+          const value = localStorage.getItem("isLogin");
+          if (value == null || !value) {
+              window.location.href="../dashboard/login.html";
+          }
+      }, 2000);
+    </script>
+    <script> 
+      function getParameters() 
+         {
+            let urlString = window.location.href;
+            let paramString = urlString.split('?')[1];
+            let params_arr = paramString.split('&');
+            let myMap = new Map();
+              for(let i = 0; i < params_arr.length; i++) {
+                let pair = params_arr[i].split('=');
+                myMap.set(pair[0], pair[1]);
+            }
+            return myMap;
+        }
+        function getfileData(fileName)
+          {
+              $.get(fileName, function(data) {
+                  $("#MainBodyContainer").html(data); 
+              });
+          }
+          
+
+          
+    </script>
+   
+   
+  </head>
+  <body>
+ <!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar">
+  <div class="navbar-wrapper">
+    <div class="m-header flex items-center py-4 px-6 h-header-height">
+      <a href="../dashboard/index.html" class="b-brand flex items-center gap-3">
+        <!-- ========   Change your logo from here   ============ -->
+         <img src="../assets/images/img/selflogo-white.png" style="width: 200px; height: 70px;" alt="logo" />
+      </a>
+    </div>
+    <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption">
+          <label>Navigation</label>
+        </li>
+        <li class="pc-item">
+        <li class="pc-item NavigationBody" data-navigation-id="n100"  style="cursor: pointer;" id="n100" >
+          <a href="../dashboard/index.html?id=Home" class="pc-link">
+            <span class="pc-micon">
+              <i class="fa-solid fa-house-user"></i>
+            </span>
+            <span class="pc-mtext">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="pc-item NavigationBody"  style="cursor: pointer;" id="n101" >
+          <a class="pc-link " href="../dashboard/index.html?id=Batch">
+            <span class="pc-micon">
+              <i class="fa-solid fa-server"></i>
+            </span>
+            <span class="pc-mtext">Batch View</span>
+          </a>
+        </li>
+         <li class="pc-item NavigationBody"  style="cursor: pointer;" id="n102" >
+          <a class="pc-link " href="../dashboard/index.html?id=SR">
+            <span class="pc-micon">
+              <i class="fa-solid fa-user-plus"></i>
+            </span>
+            <span class="pc-mtext">Student Registration</span>
+          </a>
+        </li>
+         <li class="pc-item NavigationBody"  style="cursor: pointer;" id="n103" >
+            <a class="pc-link" href="../dashboard/index.html?id=SL">
+              <span class="pc-micon ">
+                <i class="fa-solid fa-users"></i>
+              </span>
+              <span class="pc-mtext">Student List</span>
+            </a>
+        </li>
+        <li class="pc-item NavigationBody"  style="cursor: pointer;" id="n104" >
+            <a class="pc-link" href="../dashboard/index.html?id=SP">
+              <span class="pc-micon ">
+                <i class="fa-solid fa-money-check-dollar"></i>
+              </span>
+              <span class="pc-mtext">Student Payment</span>
+            </a>
+        </li>
+        <li class="pc-item NavigationBody"  style="cursor: pointer;" id="n105">
+            <a class="pc-link" href="../dashboard/index.html?id=Atd">
+              <span class="pc-micon ">
+                <i class="fa-solid fa-chart-line"></i>
+              </span>
+              <span class="pc-mtext">Attendance</span>
+            </a>
+        </li>
+
+
+        <li class="pc-item pc-caption">
+          <label>Developer Contact</label>
+          <i data-feather="monitor"></i>
+        </li>
+        <li class="pc-item">
+          <a href="https://wa.me/917491810766" target="_blank" class="pc-link">
+            <span class="pc-micon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </span>
+            <span class="pc-mtext">Whatsapp Contact</span>
+          </a>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="tel:+917491810766" class="pc-link" target="_blank">
+            <span class="pc-micon"> <i class="fa-solid fa-headset"></i></span>
+            <span class="pc-mtext">Support</span>
+          </a>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="../pages/share.html" class="pc-link" target="_blank">
+            <span class="pc-micon"> <i class="fa-solid fa-share-nodes"></i></span>
+            <span class="pc-mtext">Share</span>
+          </a>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="../pages/about.html" class="pc-link" target="_blank">
+            <span class="pc-micon"> <i class="fa-solid fa-circle-info"></i></span>
+            <span class="pc-mtext">Abouts Us</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ Sidebar Menu ] end -->
+ <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  <div class="header-wrapper flex max-sm:px-[15px] px-[25px] grow"><!-- [Mobile Media Block] start -->
+<div class="me-auto pc-mob-drp">
+  <ul class="inline-flex *:min-h-header-height *:inline-flex *:items-center">
+    <!-- ======= Menu collapse Icon ===== -->
+    <li class="pc-h-item pc-sidebar-collapse max-lg:hidden lg:inline-flex">
+      <a href="#" class="pc-head-link ltr:!ml-0 rtl:!mr-0" id="sidebar-hide">
+        <i class="fa-solid fa-bars"></i>
+      </a>
+    </li>
+    <li class="pc-h-item pc-sidebar-popup lg:hidden">
+      <a href="#" class="pc-head-link ltr:!ml-0 rtl:!mr-0" id="mobile-collapse">
+       <i class="fa-solid fa-bars"></i>
+      </a>
+    </li>
+    <li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </a>
+      <div class="dropdown-menu pc-h-dropdown drp-search">
+        <form class="px-2 py-1">
+          <input id="Search" type="search" class="form-control !border-0 !shadow-none" placeholder="Search here. . ."  />
+        </form>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- [Mobile Media Block end] -->
+<div class="ms-auto">
+  <ul class="inline-flex *:min-h-header-height *:inline-flex *:items-center">
+    <li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i class="fa-regular fa-sun"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+        <a href="#!" class="dropdown-item" onclick="layout_change('dark')">
+          <i class="fa-regular fa-moon"></i>
+          <span>Dark</span>
+        </a>
+        <a href="#!" class="dropdown-item" onclick="layout_change('light')">
+          <i class="fa-regular fa-sun"></i>
+          <span>Light</span>
+        </a>
+        <a href="#!" class="dropdown-item" onclick="layout_change_default()">
+          <i class="fa-sharp fa-solid fa-gear"></i>
+          <span>Default</span>
+        </a>
+      </div>
+    </li>
+    <!--li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i data-feather="settings"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-user"></i>
+          <span>My Account</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-settings"></i>
+          <span>Settings</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-headset"></i>
+          <span>Support</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-lock"></i>
+          <span>Lock Screen</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-power"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </li-->
+    <li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i class="fa-regular fa-bell"></i>
+        <span class="badge bg-success-500 text-white rounded-full z-10 absolute right-0 top-0">0</span>
+      </a>
+      <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown p-2">
+        <div class="dropdown-header flex items-center justify-between py-4 px-5">
+          <h5 class="m-0">Notifications</h5>
+          <span class="btn btn-link btn-sm" style="cursor: pointer;">Mark all read</span>
+        </div>
+        <div class="dropdown-body header-notification-scroll relative py-4 px-5"
+          style="max-height: calc(100vh - 215px)">
+          <!--p class="text-span mb-3">Today</p-->
+          <!--p class="text-span mb-3 mt-4">Yesterday</p-->
+          <div id="noNotification" style="width: 100%; color: red; display:  flex; justify-content: center; font-size: 25px; font-weight: bold;"> No Notification </div>
+        </div>
+        <div class="text-center py-2">
+          <button class="btn btn-link btn-sm" style="width: 100%; background-color: green; height: 40px; color: white; border-radius: 20px; font-family: sans-serif; font-size: 16px; font-weight: bold;">
+            Clear all Notifications
+          </button>
+        </div>
+      </div>
+    </li>
+    <li class="dropdown pc-h-item header-user-profile">
+      <a class="pc-head-link dropdown-toggle arrow-none me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" data-pc-auto-close="outside" aria-expanded="false">
+        <i class="fa-regular fa-user"></i>
+      </a>
+      <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown p-2 overflow-hidden">
+        <div class="dropdown-header flex items-center justify-between py-4 px-5 bg-primary-500">
+          <div class="flex mb-1 items-center">
+            <div class="shrink-0">
+              <img src="../assets/images/user/avatar-2.jpg" alt="user-image" class="w-10 rounded-full" />
+            </div>
+            <div class="grow ms-3">
+              <h6 class="mb-1 text-white userData"></h6>
+              <span class="text-white userData"></span>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown-body py-4 px-5">
+          <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
+            <a href="#" class="dropdown-item">
+              <span>
+                <i class="fa-solid fa-gear" style="margin-right: 10px;"></i>
+                <span>Settings</span>
+              </span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span>
+                <i class="fa-solid fa-share-nodes"  style="margin-right: 10px;"></i>
+                <span>Share</span>
+              </span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span>
+                <i class="fa-solid fa-lock"  style="margin-right: 10px;"></i>
+                <span>Change Password</span>
+              </span>
+            </a>
+            <div class="grid my-3">
+              <button class="Logout btn btn-primary flex items-center justify-center">
+                <i class="fa-solid fa-right-from-bracket" style="margin-right: 10px;"></i>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div></div>
+</header>
+<!-- [ Header ] end -->
+
+
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+        <!-- [ preloader ] start -->
+        <div id="preLoader"><div class="loader"></div></div>
+
+        <!-- [ Main Content ] start -->
+          <div id="MainBodyContainer">
+                <script>
+                  if(getParameters().get("id")=="Home" || getParameters().get("id")=="Home#")
+                   {
+                     getfileData("dashbord.html");
+                   }
+                   else if(getParameters().get("id")=="Batch" || getParameters().get("id")=="Batch#")
+                   {
+                      getfileData("batch.html");
+                   }
+                   else if(getParameters().get("id")=="SR" || getParameters().get("id")=="SR#")
+                   {
+                       getfileData("profile.html");
+                   }
+                   else if(getParameters().get("id")=="SL" || getParameters().get("id")=="SL#")
+                   {
+                      getfileData("studentList.html");
+                   }
+                   else if(getParameters().get("id")=="SP" || getParameters().get("id")=="SP#")
+                   {
+                        getfileData("studentList.html");
+                   }
+                   else if(getParameters().get("id")=="Atd" || getParameters().get("id")=="Atd#")
+                   {
+                        getfileData("AttandanceModal.html");
+                   }
+                   
+                    else if( getParameters().get("p")=="studentProfile")
+                   {
+                          getfileData("SPROFILE.html");
+                   }
+                   else if( getParameters().get("p")=="attandace")
+                   {
+                          getfileData("Attandace.html");
+                   }
+                    else if( getParameters().get("p")=="setAttandance")
+                   {
+                          getfileData("setAttan.html");
+                   }
+                   else
+                   {
+                    
+                   }
+                </script>
+          </div>
+        <!-- [ Main Content ] end -->
+      </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <!-- Required Js -->
+    <script src="../assets/js/plugins/simplebar.min.js"></script>
+    <script src="../assets/js/plugins/popper.min.js"></script>
+    <script src="../assets/js/plugins/feather.min.js"></script>
+    <script src="../assets/js/component.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/studentjs/studentList.js"></script>
+   
+    
+     <script>
+        const NavigationID = new Map([
+            ["Home", "#n100"],
+            ["Batch", "#n101"],
+            ["SR", "#n102"],
+            ["SL", "#n103"],
+            ["SP", "#n104"],
+            ["CRA", "#n105"]
+          ]);
+        function activeNavigration()
+            {
+                  $(".NavigationBody").removeClass('active');
+                  $(NavigationID.get(getParameters().get("id"))).addClass("active");
+            }
+
+        document.addEventListener('DOMContentLoaded', activeNavigration);
+        
+     </script>
+    <div class="floting-button fixed bottom-[50px] right-[30px] z-[1030]">
+    </div>
+     
+
+
+
+    
+    <script>
+      layout_change('false');
+    </script>
+     
+    
+    <script>
+      layout_theme_sidebar_change('dark');
+    </script>
+    
+     
+    <script>
+      change_box_container('false');
+    </script>
+     
+    <script>
+      layout_caption_change('true');
+    </script>
+     
+    <script>
+      layout_rtl_change('false');
+    </script>
+     
+    <script>
+      preset_change('preset-1');
+    </script>
+     
+    <script>
+      main_layout_change('vertical');
+    </script>
+  
+ <script>
+      $(document).ready(function(){
+        $("#openBody").click(function(){
+            $("#formBody").css("display","block");
+        });
+        $("#closeBody").click(function(){
+            $("#formBody").css("display","none");
+        });
+      });
+</script>
+   <style>
+    #preLoader{
+      position:absolute;
+      z-index: 4;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+   <script src="../assets/js/dashboard/database/userProfile.js"></script>
+  </body>
+  <!-- [Body] end -->
+</html>

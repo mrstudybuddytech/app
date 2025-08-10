@@ -1,0 +1,19 @@
+ <tr class="unread">
+    <td>
+        <img class="rounded-full max-w-10" style="width: 40px" src="../assets/images/img/batchroom.png" alt="activity-user" />
+    </td>
+    <td>
+        <h6 class="mb-1">{{BatchName}}</h6>
+        <p class="m-0">fees:{{fees}}</p>
+    </td>
+    <td>
+        <h6 class="text-muted">
+        <i class="fas fa-circle text-success text-[10px] ltr:mr-4 rtl:ml-4"></i>
+          {{BatchDate}}
+        </h6>
+    </td>
+    <td class=" flex justify-center">
+        <button class="btn bg-red-500 btn-primary shadow-2xl Delete" style="margin-right: 10px;"  data-id="{{ID}}" data-collection="{{collection}}"  >Delete</button>
+        <button class="btn btn-primary  shadow-2xl batchOpen"  style=" min-width: 60px; max-width: 130px;" data-id="{{ID}}">Open</button>
+    </td>
+</tr>

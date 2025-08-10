@@ -1,0 +1,37 @@
+<div class="container">
+   <div style="display: flex; justify-content: space-around; margin-top: 10px; margin-bottom: 10px;">
+       <h1>📋 Attendance Viewer</h1>
+       <button id="addAttandance" style="padding: 2px 5px; background-color: #04b8ff; color: white; border-radius: 5px;">set Attandace</button>
+   </div>
+
+  <div class="filters">
+    <input type="date" id="dateFilter"/>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+      <tr>
+        <th>S/N</th>
+        <th>SID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody id="attendanceBody">
+        <tr><td colspan="5">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- POPUP -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <span class="popup-close" >×</span>
+    <h3>Student Attendance History</h3>
+    <div id="popupContent"></div>
+  </div>
+</div> 
+<script type="module" src="../assets/js/dashboard/database/AttandanceModal.js"></script>

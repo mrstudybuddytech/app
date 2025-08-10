@@ -1,0 +1,31 @@
+ <div class="app-container">
+    <header>
+      <button class="back-btn" id="pageBack" >←</button>
+      <h1>Attendance</h1>
+    </header>
+
+    <main id="card" class="card">
+      <div class="profile-section">
+        <div style="display: flex; justify-content: center;"><img id="photo" class="profile-img" src="" alt="Profile" /></div>
+        <h2 id="name">jhgjh</h2>
+      </div>
+      <div class="info-group">
+        <p><strong>👨 Father:</strong> <span id="fatherName"></span></p>
+        <p><strong>🆔 ID:</strong> <span id="studentID"></span></p>
+        <p><strong>📞 Phone:</strong> <span id="phone"></span></p>
+      </div>
+
+      <div class="attendance-options">
+        <label><input type="radio" name="status" value="Present" /> 🏠 Present</label>
+        <label><input type="radio" name="status" value="Absent" /> ❌ Absent</label>
+        <label><input type="radio" name="status" value="Leave" /> 📝 Leave</label>
+      </div>
+      <div id="markedStatus" class="marked-status"></div>
+    </main>
+
+    <footer>
+      <button class="btn back" >BACK</button>
+      <button class="btn next" >NEXT</button>
+    </footer>
+  </div>
+  <script type="module" src="../assets/js/dashboard/database/setview.js"></script>

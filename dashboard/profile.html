@@ -1,0 +1,90 @@
+<div class="col-span-12 xl:col-span-8 md:col-span-6">
+    <div class="card table-card">
+        <div class="card-header">
+          <div class="headerBatch" style="grid-template-rows: 1fr; grid-template-columns: 1fr;" >
+              <div class="flex justify-center  active"  ><span class=" activeSpan">Student Registration Form</span></div>  
+          </div>
+        </div>
+        <div id="photoBody" class="card-body" style="display:none; justify-content: center; height: 100%; width: 95%; position: absolute; z-index: 2; background:transparent">
+             <div style="width: 450px; height: 600px; min-height: 400px; display:grid; grid-template-columns: 0.1fr 1fr 0.2fr; grid-template-columns: 1fr; background-color: white; border: 1px solid gray; border-radius: 20px;">
+                <div class="flex justify-between" style=" width: 100%;height: 40px; padding: 15px; border-bottom: 1px solid gray;">
+                    <span id="HeaderName" style="font-family: sans-serif; color: black;">Camera</span>
+                    <img  id="closeCamera" src="../assets/images/img/close.png" style="min-width: 10px; max-width: 20px; height: 20px; cursor: pointer;" title="Batch Registration"/>
+                </div>
+                <div style="height: auto;"> 
+                  <video id="cameraFeed" autoplay style="width: 100%; height: 70%;"></video>
+                  <button id="captureButton" style="margin-top: 10px; width: 100%; height: 10%; border-radius: 20px 20px; background-color: green; color: white; font-family: sans-serif; font-size: 16px; font-weight: bold;">Take Photo</button>
+                  <select id="changeCamra" data-cameraID="" style="margin-top: 10px; width: 100%; height: 10%; border-radius: 20px 20px; background-color: green; color: white;  font-family: sans-serif; font-size: 16px; font-weight: bold;"></select>
+                </div>
+             </div>
+        </div>
+         <div class="card-body">
+            <div style="margin: 10px 30px 10px 30px; display: flex-box;">
+                    <div class="grid grid-cols-12 gap-4 mb-3">
+                      <div class="col-span-12 sm:col-span-12 flex justify-center" >
+                         <div>
+                              <canvas id="photoCanvas" style="display: none; width: 200px; height: 200px; border: 1px solid green; border-radius: 50%; cursor: pointer;" ></canvas>
+                              <input type="hidden"  name="x" value="" id="imageData"></span>
+                         </div>
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                        <input type="text" class="form-control" placeholder="Enrollment ID" id="SID" value="" disabled>
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                        <select class="form-control" id="batchList"> 
+                            <option selected value="Choose a Batch">Choose a Batch</option>
+                        </select>
+                    </div>
+                      <div class="col-span-12 sm:col-span-3">
+                         <input type="text" class="form-control" placeholder="Student Name" id="SNAME"  >
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                         <input type="number" class="form-control" placeholder="Mobile number" id="MB" >
+                      </div>
+                       <div class="col-span-12 sm:col-span-3">
+                         <input type="text" class="form-control" placeholder="Father's Name" id="SFNAME" >
+                      </div>
+                       <div class="col-span-12 sm:col-span-3">
+                         <input type="text" class="form-control" placeholder="Mother's Name" id="SMNAME" >
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                        <select class="form-control" id="gender"> 
+                            <option selected value="Choose a Gender">Choose a Gender</option>
+                            <option  value="Male">Male</option>
+                            <option  value="Female">Female</option>
+                        </select>
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                        <select class="form-control" id="className"> 
+                            <option selected value="Choose a class">Choose a class</option>
+                        </select>
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                          <input type="date" class="form-control" placeholder=" Date" id="DOB" required title="date of birth">
+                      </div>
+                       <div class="col-span-12 sm:col-span-3">
+                         <textarea type="text" class="form-control" placeholder="Address" id="address"></textarea>
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                         <input type="number" class="form-control" placeholder="Whatsapp number" id="WMB" >
+                      </div>
+                      <div class="col-span-12 sm:col-span-3">
+                         <select class="form-control" id="pikuperImage"> 
+                            <option selected value="Choose a Batch">Choose a Image Optioon</option>
+                            <option  value="camera">Camera</option>
+                            <option  value="galley">Gallery</option>
+                        </select>
+                        <div style=" display:none; width: 100%;" id="imageBodyChoiser">
+                           <input type="file" id="imageInput" accept="image/*" style="width: 100%; padding: 7px 20px; background-color: #3498db; border-radius: 20px; color: white;  cursor: pointer; margin-top: 10px;"/>
+                        </div>
+                        </div>
+                      <div class="col-span-12 sm:col-span-12 justify-center flex" style="margin-top: 20px; margin-bottom: 20px;">
+                          <button   class="btn btn-primary  shadow-2xl CompleteStudentDetails"  style=" min-width: 100px; max-width: 190px;">Sumbit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module" src="../assets/js/dashboard/database/studentprofile.js"></script>
+<script src="../assets/js/dashboard/database/filepickup.js"></script>

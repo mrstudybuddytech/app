@@ -1,0 +1,80 @@
+<div class="container" style="display: none;">
+    <!-- Profile Section -->
+    <div class="card profile-card">
+      <img  class="SDATA" id="s1" src="#" alt="Profile" />
+      <h2 class="SDATA Name"></h2>
+      <p class="SDATA" id="s2"></p>
+      <p class="SDATA" id="s3"></p>
+      <div class="linkButton">
+        <button class="follow callPhone"><i class="fa-solid fa-phone-volume" style="margin-right: 5px;"></i>Phone</button>
+        <button class="message"><i class="fa-solid fa-message" style="margin-right: 5px;"></i>Message</button>
+        <button class="Wmessage"><i class="fa-solid fa-trash" style="margin-right: 2.5px;"></i>Delete</button>
+      </div>
+    </div>
+
+    <!-- Contact & Info Section -->
+    <div class="card details-card">
+      <h3>Student Details :</h3>
+      <div class="details-grid">
+        <div >
+          <div >
+            <label>Name</label>
+            <p><input class="editinput SDATA Name" type="text" placeholder="Enter New Name"  disabled/></p>
+          </div>
+          <div class="updateBody"><i class="fa-regular fa-pen-to-square edit"></i><span class="edit-btn" data-update="Name">Update</span></div>
+        </div>
+        <div>
+          <div>
+            <label>Father's Name</label>
+            <p><input id="s4" class="editinput SDATA" type="text" placeholder="Enter New Father's Name"  disabled /></p>
+          </div>
+          <div class="updateBody"><i class="fa-regular fa-pen-to-square edit"></i><span class="edit-btn" data-update="FatherName">Update</span></div>
+        </div>
+        <div>
+          <div>
+            <label>Mother's Name</label>
+            <p><input id="s5" class="editinput SDATA" type="text" placeholder="Enter New Mother's Name"  disabled/></p>
+          </div>
+          <div class="updateBody"><i class="fa-regular fa-pen-to-square edit"></i><span class="edit-btn" data-update="MotherName">Update</span></div>
+        </div>
+        <div>
+          <div>
+              <label>Phone</label>
+              <p><input id="s6" class="editinput SDATA" type="number" placeholder="Enter New Phone Number"  disabled/></p>
+          </div>
+         <div class="updateBody"><i class="fa-regular fa-pen-to-square edit"></i><span class="edit-btn" data-update="MobileNumber">Update</span></div>
+        </div>
+        <div>
+            <div>
+               <label>Address</label>
+               <p><input id="s7" class="editinput SDATA" type="text" placeholder="Enter New Address"  disabled/></p>
+            </div>
+            <div class="updateBody"><i class="fa-regular fa-pen-to-square edit"></i><span class="edit-btn" data-update="address">Update</span></div>
+        </div>
+        <div>
+            <div>
+               <label>Date Of Birth</label>
+               <p><input id="s8" class="editinput SDATA" type="text" placeholder="Enter new DOB (dd/mm/yyyy)"  disabled/></p>
+            </div>
+            <div class="updateBody"><i class="fa-regular fa-pen-to-square edit"></i><span class="edit-btn" data-update="DOB">Update</span></div>
+        </div>
+        <div>
+            <div>
+               <label>Batch Name</label>
+               <p>
+                  <select id="BatchList" disabled>
+                  </select>
+              </p>
+            </div>
+            <div class="updateBody"><i class="fa-regular fa-pen-to-square edit"></i><span class="edit-btn" data-update="parentClassID">Update</span></div>
+        </div>
+        <div>
+            <div>
+               <label>Date Of Admission</label>
+               <p class="SDATA" id="s9">{{DOA}}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+<script type="module" src="../assets/js/dashboard/database/Sprofile.js"></script>

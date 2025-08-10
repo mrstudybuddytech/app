@@ -1,0 +1,31 @@
+<div class="col-span-12 xl:col-span-8 md:col-span-6">
+    <div class="card table-card">
+        <div class="card-header">
+          <div class="headerBatch" >
+              <div id="SLIST" class="flex justify-center headerActive active" data-baseID="{{baseID}}" data-id="SLISt"><span class="hoverSpan activeSpan">Student List</span></div>
+              <div class="flex justify-center headerActive dactive "><span class="hoverSpan dactiveSpan"data-baseID="{{baseID}}" data-id="SUBJECT">Subject List</span></div>
+          </div>
+        </div>
+        <div id="photoBody" class="card-body" style="display:none; justify-content: center; height: 100%; width: 95%; position: absolute; z-index: 2; background:transparent">
+             <div style="width: 450px; height: 500px; min-height: 400px; display:grid; grid-template-columns: 0.3fr 1fr; grid-template-columns: 1fr; background-color: white; border: 1px solid gray; border-radius: 20px;">
+                <div class="flex justify-between" style=" width: 100%;height: 40px; padding: 15px; border-bottom: 1px solid gray;">
+                    <span id="HeaderName" style="font-family: sans-serif; color: black;">ImageView</span>
+                    <img  id="closeCamera" src="../assets/images/img/close.png" style="min-width: 10px; max-width: 20px; height: 20px; cursor: pointer;" title="Batch Registration"/>
+                </div>
+                <div style="height: auto;"> 
+                   <img src="" id="imageURL" style="width: 100%; height: auto;"/>
+                </div>
+             </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tbody id="ListBody">
+                         <div id="noData" style="width: 100%; color: red; display:  flex; justify-content: center; font-size: 25px; font-weight: bold;"> No Data </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module" src="../assets/js/dashboard/database/classroom.js"></script>

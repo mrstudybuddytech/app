@@ -1,0 +1,158 @@
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    .profile-card {
+      flex: 1 1 300px;
+      max-width: 500px;
+      height: 300px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .profile-card img {
+      display: flex;
+      justify-self: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .profile-card h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .profile-card p {
+      color: gray;
+      font-size: 14px;
+    }
+
+    .profile-card button {
+      margin: 5px 2px;
+      padding: 10px 10px;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .linkButton
+    {
+      width: 100%;
+      display: flex;
+      margin-top: 10px;
+      justify-content: space-around;
+    }
+    .profile-card .follow { background: #007bff; }
+    .profile-card .message { background: #6c757d; }
+    .profile-card .Wmessage {background: red;}
+
+
+
+    .details-card {
+      flex: 2 1 500px;
+      max-width: 100%;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .details-grid > div {
+      display:grid;
+      grid-template-columns: 1fr 0.1fr;
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .details-grid label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .details-grid p {
+      margin-top: 5px;
+      color: #222;
+    }
+    .edit-input
+    {
+      width: 100%;
+      border: 1px solid gainsboro;
+      padding-left: 10px;
+      height: 35px;
+      background-color: white;
+      border-radius: 5px;
+    }
+    .updateBody
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .edit-btn {
+      margin-left: 5px;
+      display: none;
+      padding: 6px 5px;
+      background: #17a2b8;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .edit
+    {
+      display:flex;
+      font-size: 18px;
+      color: green;
+      cursor: pointer;
+    }
+
+    .progress-card {
+      flex: 1 1 350px;
+    }
+
+    .progress-card h4 {
+      margin-bottom: 10px;
+      font-weight: normal;
+      color: #666;
+    }
+
+    .progress {
+      background: #e9ecef;
+      border-radius: 20px;
+      height: 8px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      background: #007bff;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }

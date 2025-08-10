@@ -1,0 +1,329 @@
+/**
+ * Configuration.
+ */
+$colors: (
+	blue: #4FA0D0,
+	blue-light: #75B9E1,
+
+	orange: #ff9800,
+	orange-light: #FFB039,
+
+	green: #4AD890,
+	green-light: #71E6AB,
+
+	red: #EF5289,
+	red-light: #F578A4
+);
+
+$popup: (
+	icon-size: 90px,
+	z-index: 10000
+);
+
+$animation-duration: .3s;
+
+/**
+ * Buttons.
+ */
+.button {
+  margin-bottom: 4px;
+	padding: 8px 12px;
+	border: 1px solid map-get($colors, blue-light);
+
+	border-radius: 3px;
+	background: map-get($colors, blue);
+
+	cursor: pointer;
+
+	font-family: inherit;
+	text-transform: uppercase;
+	color: #fff;
+
+	&:focus {
+		outline: none;
+	}
+
+	&--warning {
+		border: 1px solid map-get($colors, orange-light);
+		background: map-get($colors, orange);
+	}
+
+	&--success {
+		border: 1px solid map-get($colors, green-light);
+		background: map-get($colors, green);
+	}
+
+	&--error {
+		border: 1px solid map-get($colors, red-light);
+		background: map-get($colors, red);
+	}
+}
+
+
+/**
+ * Popups.
+ */
+.popup {
+	$classes: (
+		root: #{&},
+		visible: #{&}--visible,
+
+		icon: #{&}--icon,
+
+		// BEVM Syntax for icon variations (https://webuild.envato.com/blog/chainable-bem-modifiers/)
+		question: '.-question',
+		success: '.-success',
+		error: '.-error'
+	);
+
+	visibility: hidden;
+
+	// Offset visibility to view "hide-popup" animation.
+	transition: visibility 0ms linear #{$animation-duration};
+
+	// As we have no ampersand in the selector, we need the "at-root" function
+	// to break out of nesting.
+	@at-root #{map-get($classes, visible)} {
+		visibility: visible;
+		transition: visibility 0ms;
+	}
+
+	// Overlay
+	&__background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: map-get($popup, z-index);
+
+		height: 100%;
+		width: 100%;
+
+		background: rgba(0, 0, 0, .4);
+
+		opacity: 0;
+		transition: opacity #{$animation-duration} ease-in-out;
+
+		#{map-get($classes, visible)} & {
+			opacity: 1;
+		}
+	}
+
+	// Popup
+	&__content {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		z-index: #{map-get($popup, z-index) + 1};
+
+		min-width: 400px;
+		padding: 25px 50px;
+
+		background: #fff;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+
+		text-align: center;
+
+		animation: hide-popup #{$animation-duration} forwards;
+
+		#{map-get($classes, visible)} & {
+			animation: show-popup #{$animation-duration} forwards;
+		}
+
+		/**
+		 * Popup types.
+		 */
+		#{map-get($classes, icon)} & {
+			padding-top: 130px;
+
+			&:before, &:after {
+				position: absolute;
+				top: 25px;
+				left: 50%;
+				transform: translateX(-50%);
+
+				display: block;
+				height: map-get($popup, icon-size);
+				width: map-get($popup, icon-size);
+			}
+
+			// Circle
+			&:before {
+				content: '';
+
+				border: 3px solid currentColor;
+				border-radius: 50%;
+
+				// Animated properties
+				transform: translateX(-50%) scale(1, 0);
+				opacity: 0;
+			}
+
+
+			// Icon
+			&:after {
+				content: '\2713';
+
+				line-height: map-get($popup, icon-size);
+				font-size: 45px;
+
+				// Animated properties
+				transform: translateX(-50%) scale(0);
+				opacity: 0;
+			}
+
+			/**
+			 * Animations on opened popups.
+			 *
+			 * We need to prepend ".popup--visible" with no space to "&" to match the
+			 * an opened popup: ".popup--visible.popup--icon".
+			 *
+			 * Therefore we need the "at-root" function to break out of nesting as well as the
+			 * "selector-append" function to append parent selectors without space.
+			 *
+			 * Details:
+			 *  - https://css-tricks.com/the-sass-ampersand/
+			 *  - http://sass-lang.com/documentation/Sass/Script/Functions.html#selector_append-instance_method
+			 */
+			@at-root #{selector-append(map-get($classes, visible), &)} {
+				&:before {
+					animation: show-icon-cirlce #{$animation-duration} forwards #{$animation-duration / 2};
+				}
+
+				&:after {
+					animation: show-icon #{$animation-duration} forwards #{$animation-duration};
+				}
+			}
+
+			/**
+			 * Different popup icon styles
+			 *
+			 * E.g. selector for type question: ".popup--icon.-question" to match class="popup--icon -question"
+			 *
+			 * To have an easier selector in SCSS we use a little workaround and rearrange the selectors:
+			 *  ".-question.popup--icon" is also matching class="popup--icon -question"
+			 */
+
+			// Question: ".-question.popup--icon"
+			@at-root #{selector-append(map-get($classes, question), &)} {
+				&:before {
+					border-color: map-get($colors, orange);
+				}
+
+				&:after {
+					content: '?';
+
+					color: map-get($colors, orange);
+				}
+			}
+
+			// Success: ".popup--icon.-success"
+			@at-root #{selector-append(map-get($classes, success), &)} {
+				&:before {
+					border-color: map-get($colors, green);
+				}
+
+				&:after {
+					content: '\2713';
+
+					color: map-get($colors, green);
+				}
+			}
+
+			// Error: ".popup--icon.-success"
+			@at-root #{selector-append(map-get($classes, error), &)} {
+				&:before {
+					border-color: map-get($colors, red);
+				}
+
+				&:after {
+					content: '\2717';
+
+					color: map-get($colors, red);
+				}
+			}
+		}
+
+		// Popuptitle
+		&__title {
+			margin-bottom: 10px;
+
+			font-size: 28px;
+			font-weight: 100;
+			color: #626262;
+		}
+	}
+}
+
+
+/**
+ * Popup animations.
+ * Based on Sweet Alert: "https://t4t5.github.io/sweetalert/"
+ */
+@keyframes show-popup {
+	0% {
+		transform: translate(-50%, -50%)
+		scale(.7);
+
+		opacity: 0;
+	}
+	45% {
+		transform: translate(-50%, -50%)
+		scale(1.05);
+
+		opacity: 1;
+	}
+	80% {
+		transform: translate(-50%, -50%)
+		scale(.95);
+	}
+	100% {
+		transform: translate(-50%, -50%)
+		scale(1);
+	}
+}
+
+@keyframes hide-popup {
+	0% {
+		transform: translate(-50%, -50%)
+		scale(1);
+
+		opacity: 1;
+	}
+	100% {
+		transform: translate(-50%, -50%)
+		scale(.5);
+
+		opacity: 0;
+	}
+}
+
+
+/**
+ * Icon animations.
+ */
+@keyframes show-icon {
+	0% {
+		transform: translateX(-50%) scale(0);
+
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(-50%) scale(1);
+
+		opacity: 1;
+	}
+}
+
+@keyframes show-icon-cirlce {
+	0% {
+		transform: translateX(-50%) scale(1, 0);
+
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(-50%) scale(1, 1);
+
+		opacity: 1;
+	}
+}

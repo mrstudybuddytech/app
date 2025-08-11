@@ -25,6 +25,7 @@
           const snapshot = await getCountFromServer(q);
           const size = snapshot?snapshot.data().count:0;
           const totalStudent = localStorage.getItem("batch")*localStorage.getItem("students");
+          document.getElementById("STS").innerHTML=`${size}`;
           document.getElementById("TS").innerHTML=`${size}/${totalStudent}`;
           document.getElementById("TSL").style=`width:${(size*100)/totalStudent}%;`;
          }
@@ -38,6 +39,7 @@
           const snapshot = await getCountFromServer(q);
           const size = snapshot?snapshot.data().count:0;
           const batch = localStorage.getItem("batch");
+           document.getElementById("STB").innerHTML=`${size}`;
           document.getElementById("TB").innerHTML=`${size}/${batch}`;
           document.getElementById("TBL").style=`width:${(size*100)/batch}%;`;
          }

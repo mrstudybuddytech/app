@@ -33,7 +33,7 @@ let studentList =[];
                 };
                 studentList.push(studentData);
                 let  url,urlName;
-                if(getParameters().get("p")=="studentProfile")
+                if(getParameters().get("id")=="SL")
                 {
                   url = '../dashboard/index.html?p=studentProfile&SID='+doc.id;
                   urlName="View Profile";
@@ -138,4 +138,5 @@ function getParameters()
                 myMap.set(pair[0], pair[1]);
             }
             return myMap;
+
 }

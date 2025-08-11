@@ -1,5 +1,5 @@
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js';
-  import { getFirestore, setDoc,doc,getCountFromServer} from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js';
+  import { getFirestore, setDoc,doc,getCountFromServer,query,collection,where} from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js';
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
@@ -17,7 +17,13 @@
  export   const db = getFirestore(app);
  export  async function uploadData(collectionName, documentId, data) {
 
-   if(getSize(data.baseID)==localStorage.getItem("batch")){
+  const q = query(
+                    collection(db, "BatchList"),
+                    where("baseID", "==", "SBC906umar51")
+                    );
+    const snapshot = await getCountFromServer(q);
+    const size = snapshot?snapshot.data().count:0;
+   if(size==localStorage.getItem("batch")){
       alert("all alloted batch? you are successfully created!");
       return;
    }
@@ -55,6 +61,7 @@
     const snapshot = await getCountFromServer(q);
     return  snapshot?snapshot.data().count:0;
    }
+
 
 
 

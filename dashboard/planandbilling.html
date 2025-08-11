@@ -258,9 +258,9 @@
   </div>
 
   <script>
-      function goBack() {
-      document.getElementById("billing-box").style.display = "none";
-      document.getElementById("spec-container").style.display = "flex";
+       function goBack() {
+      document.querySelector(".billing-box").style.display = "none";
+      document.querySelector(".spec-container").style.display = "flex";
       document.getElementById("pageTitle").textContent = "Build Specifications";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

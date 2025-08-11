@@ -84,9 +84,16 @@ function sumbitStudentDetails()
 
 
 async function profileUploadData(collectionName, documentId, data) {
-       if(getSize(baseID,data.className)==localStorage.getItem("students"))
+        const q = query(
+                    collection(db, "studentList"),
+                    where("baseID", "==", baseID),
+                    where("parentClassID","==",data.parentClassID)
+                    );
+       const snapshot = await getCountFromServer(q);
+       const size = snapshot?snapshot.data().count:0;
+       if(size==localStorage.getItem("students"))
        {
-         alert("number of limit reached?")
+         alert("number of limit reached?");
          return;
        }
           preLoader(true);
@@ -148,16 +155,8 @@ async function fetchList()
    });
 }
 
-async function getSize(baseID,parentClassID)
-   {
-     const q = query(
-                    collection(db, "studentList"),
-                    where("baseID", "==", baseID),
-                    where("parentClassID","==",parentClassID)
-                    );
-    const snapshot = await getCountFromServer(q);
-    return  snapshot?snapshot.data().count:0;
-   }
+
+
 
 
 

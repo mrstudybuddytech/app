@@ -1,0 +1,16 @@
+<script>
+function shareLink() {
+  if (navigator.share) {
+    navigator.share({
+      title: "Check this out!",
+      text: "Here’s something interesting:",
+      url: "https://example.com/share-link"
+    })
+    .then(() => console.log('Shared successfully'))
+    .catch(err => console.log('Error sharing:', err));
+  } else {
+    alert("Sharing not supported on this browser.");
+  }
+}
+  shareLink();
+</script>

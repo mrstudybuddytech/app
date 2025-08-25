@@ -73,7 +73,8 @@ const baseID = localStorage.getItem("baseID");
                   .replace("{{MB}}",doc.data().MobileNumber)
                   .replace("{{studentID}}",doc.id)
                   .replace("{{imageUrl}}",doc.data().imageUrl)
-                  .replace("{{SID}}",doc.id);
+                  .replace("{{SID}}",`../dashboard/index.html?p=studentProfile&SID=${doc.id}`)
+                  .replace("{{urlName}}",'View Profile');
                   studentListHtml.push(addHtml);
                   $("#ListBody").append($(addHtml));
                   preLoader(false);
@@ -108,3 +109,4 @@ const baseID = localStorage.getItem("baseID");
    });
 
  }
+

@@ -13,6 +13,7 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
+const baseID = localStorage.getItem("baseID");
  $(document).ready(function(){
      $(".headerActive").click(function(){
         if(!$(this).hasClass('active')){
@@ -53,7 +54,7 @@
     }
   imageView();
   }
-  getStudentList("JYPL6341C",$("#SLIST").attr("data-baseID"));
+  getStudentList(baseID,$("#SLIST").attr("data-baseID"));
 
         async function getStudentList(baseID,parentClassID) {
       
@@ -105,4 +106,5 @@
            $("#imageURL").attr("src","");
       });
    });
+
  }
